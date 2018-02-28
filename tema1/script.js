@@ -52,7 +52,7 @@ document.getElementById('btn').addEventListener('click', function (e) {
                 $.ajax(settings).done(function (response) {
 
 
-                    document.getElementById('table_body').innerHTML += '<tr><td>' + track.trackName + '</td><td>' + track.releaseDate.substring(0, 9) + '</td><td>' + track.trackPrice + '</td><td>  ' + track.trackPrice * response.rates.RON +' </td></tr>'
+                    document.getElementById('table_body').innerHTML += '<tr><td>' + track.trackName + '</td><td>' + track.releaseDate.substring(0, 10) + '</td><td>' + track.trackPrice + '</td><td>  ' + track.trackPrice * response.rates.RON +' </td></tr>'
 
                 });
 
