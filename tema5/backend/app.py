@@ -91,15 +91,23 @@ class MyAction:
 
 
 app = flask.Flask("aa")
+
+from flask_cors import CORS, cross_origin
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 action = MyAction()
 
 
 @app.route("/devices", methods=['GET'])
+@cross_origin()
 def devices():
     return json.dumps((action.get_data_from_live_objects().json()))
 
 
 @app.route("/system/stats", methods=['GET'])
+@cross_origin()
 def system_stats():
     return json.dumps(get_stas_from_machine())
 
