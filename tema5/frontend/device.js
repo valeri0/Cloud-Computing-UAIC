@@ -32,7 +32,7 @@ function generateMap(data) {
                 lat: data[i].location.lat,
                 lng: data[i].location.lon
             };
-            var details = '<div><h1>' + data[i].tags[0] + '</h1><h2>Provider: ' + data[i].location.provider + '</h2>' + '<p>Temp: <b>' + data[i].value.temp + '</b>  Pressure: <b>' + data[i].value.pressure + '</b> Connector: <b>' + data[i].metadata.connector + '</b></p></div>';
+            var details = '<div><h1>' + data[i].tags[0] + '</h1><h2>Provider: ' + data[i].location.provider + '</h2>' + '<p>Temp: <b>' + data[i].value.avg_temperature + '</b>  Pressure: <b>' + data[i].value.avg_pressure + '</b> Connector: <b>' + data[i].metadata.connector + '</b></p></div>';
 
             marker = new google.maps.Marker({
                 position: position,

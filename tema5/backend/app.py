@@ -1,3 +1,4 @@
+import datetime
 import flask
 import requests
 import psutil
@@ -33,7 +34,7 @@ class MyAction:
     __urad_headers = {'X-User-id': '4126', 'X-User-hash': '063cf4fdf721e844980c6f3b8b6eddcf'}
 
     __live_objects_url = "https://liveobjects.orange-business.com/api/v0/data/streams/tema5t5"
-    __live_objects_headers = {'X-API-KEY': '15f17386a2a7435dad5029ad4e29e453'}
+    __live_objects_headers = {'X-API-KEY': 'c80b688d6cfa4b238bf5b57416336261'}
 
     __request_loop_time = 7
 
@@ -64,7 +65,7 @@ class MyAction:
                 "Detector",
                 "Temperature"
             ],
-            'timestamp': obj['timelocal'],
+            'timestamp': str(datetime.datetime.now().isoformat())+"Z",
             'value': {
                 'avg_temperature': obj['avg_temperature'],
                 'avg_pressure': obj['avg_pressure'],
@@ -73,6 +74,8 @@ class MyAction:
                 'min_voc': obj['min_voc']
             }
         }
+
+        print(json.dumps(response))
 
         return response
 
